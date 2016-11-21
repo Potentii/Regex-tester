@@ -1,0 +1,9 @@
+
+#header-section{
+   visibility: hidden;
+} #header-logo p{
+   font-family: 'Roboto Mono', monospace;
+   font-size: 2em;
+} #header-logo > p > span{
+   color: #18FFFF;
+}

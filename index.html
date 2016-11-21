@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- * Meta * -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width"/>
+      <meta name="theme-color" content="#212121">
+
+      <!-- * General styles * -->
+      <link rel="stylesheet" href="./css/common.css">
+
+      <!-- * Specific styles * -->
+      <link rel="stylesheet" href="./css/page.css">
+      <link rel="stylesheet" href="./css/header-section.css">
+      <link rel="stylesheet" href="./css/tester-section.css">
+
+      <!-- * Scripts * -->
+      <script src="./js/main.js" charset="utf-8"></script>
+      <script src="./js/TesterView.js" charset="utf-8"></script>
+      <script src="./js/TesterController.js" charset="utf-8"></script>
+
+      <!-- * Title * -->
+      <title>Regex tester</title>
+   </head>
+   <body>
+
+
+
+      <!-- * Header section * -->
+      <header id="header-section">
+         <span id="header-logo">
+            <p><span>Reg</span>ex</p>
+            <p>tester</p>
+         </span>
+      </header>
+
+
+
+      <!-- * Tester section * -->
+      <section id="tester-section">
+
+         <!-- * Left card * -->
+         <div id="tester-text-container" class="card raised labeled-container">
+
+            <!-- * Text input * -->
+            <span class="upper-label">Text</span>
+            <div class="labeled-target">
+               <textarea id="tester-text-input" onchange="testerController.onTextChange(event)" ontextinput="testerController.onTextChange(event)" oninput="testerController.onTextChange(event)" spellcheck="false" autocomplete="off"></textarea>
+            </div>
+
+         </div>
+
+         <!-- * Right card * -->
+         <div id="tester-regex-container" class="card raised labeled-container">
+
+            <!-- * Regex input * -->
+            <span class="upper-label">Regex</span>
+            <div id="tester-regex-input-container" class="labeled-target">
+               <input id="tester-regex-input" onchange="testerController.onRegexChange(event)" ontextinput="testerController.onRegexChange(event)" oninput="testerController.onRegexChange(event)" type="text" spellcheck="false" autocomplete="off" placeholder=".*">
+            </div>
+
+            <!-- * Highlight output * -->
+            <span class="upper-label">Selection</span>
+            <div id="tester-highlight-output" class="labeled-target"></div>
+
+            <!-- * Matches list output * -->
+            <span class="upper-label">Matches</span>
+            <ul id="tester-matches-output" class="labeled-target"></ul>
+
+         </div>
+
+      </section>
+
+
+
+   </body>
+</html>

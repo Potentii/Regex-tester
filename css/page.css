@@ -1,0 +1,16 @@
+
+*{
+   color: #F5F5F5;
+   font-family: 'Roboto Mono', monospace;
+}
+
+
+
+body{
+   background: #424242;
+} body > *{
+   display: block;
+   width: 100%;
+   height: auto;
+   margin: 0 auto 1em auto;
+}
