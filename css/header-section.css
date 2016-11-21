@@ -1,9 +1,30 @@
 
 #header-section{
-   visibility: hidden;
-} #header-logo p{
-   font-family: 'Roboto Mono', monospace;
-   font-size: 2em;
-} #header-logo > p > span{
-   color: #18FFFF;
+   width: 100%;
+   height: 6em;
+   background: #212121;
+}
+
+
+
+@media (orientation: landscape) {
+   #header-section{
+      padding: 0.5em 7.5%;
+   }
+}
+@media (orientation: portrait) {
+   #header-section{
+      padding: 0.5em 5%;
+   }
+}
+
+
+
+#header-logo{
+   width: 100%;
+   height: 100%;
+   background-image: url('../res/logo.svg');
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: 0% center;
 }

@@ -37,6 +37,10 @@
    max-width: 100%;
    min-height: 10em;
    white-space: pre-wrap;
+   outline: 0px solid rgba(0, 0, 0, 0);
+   transition: outline 0.1s ease;
+} #tester-text-container > .labeled-target > textarea:focus{
+   outline: 3px solid rgba(0, 0, 0, 0.15);
 }
 
 
@@ -45,12 +49,15 @@
    width: 100%;
    font-size: 1.1em;
    padding: 0.4em 0.4em;
-   opacity: 0.4;
-   border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+   opacity: 0.3;
+   border-bottom: 2px solid rgba(245, 245, 245, 0.6);
    white-space: pre-wrap;
+   transition: opacity 0.15s ease;
 } #tester-regex-input:focus{
    opacity: 1;
    outline: none;
+} #tester-regex-input:invalid, #tester-regex-input.invalid{
+   border-bottom: 2px solid #E53935;
 }
 
 
@@ -75,6 +82,7 @@
    border-top-right-radius: 2px;
    border-top-left-radius: 2px;
    background: #00838F;
+   animation: inflate 0.1s ease;
 } #tester-matches-output > li::after{
    content: '';
    position: absolute;
@@ -85,4 +93,17 @@
    background: #18FFFF;
    border-bottom-right-radius: 2px;
    border-bottom-left-radius: 2px;
+}
+
+
+
+@keyframes inflate {
+   0%{
+      opacity: 0.2;
+      transform: scale(0.2, 0.2);
+   }
+   100%{
+      opacity: 1;
+      transform: scale(1, 1);
+   }
 }

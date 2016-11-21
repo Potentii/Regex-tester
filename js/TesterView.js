@@ -1,7 +1,7 @@
 class TesterView{
 
 
-   
+
    constructor(){
       // *Defining the highlight marks information:
       this._mark_start_str = `<span class="highlighted">`;
@@ -13,7 +13,8 @@ class TesterView{
       this._matches_start_str = `<li>`;
       this._matches_end_str = `</li>`;
 
-      // *Getting the DOM output elements:
+      // *Getting the DOM elements:
+      this._regex_input = $('#tester-regex-input');
       this._highlight_output = $('#tester-highlight-output');
       this._matches_output = $('#tester-matches-output');
    }
@@ -26,7 +27,29 @@ class TesterView{
     * @param  {string} text   The text to be tested
     * @author Guilherme Reginaldo Ruella
     */
-   update({ regex = new RegExp('^'), text = '' }){
+   update({ regex, text = '' }){
+
+      // *Checking if the regex could be set:
+      if(!regex){
+         // *If it couldn't:
+         // *Setting a neutral regex:
+         regex = new RegExp('^');
+         // *Checking if the input hasn't the invalid class:
+         if(!this._regex_input.className.includes('invalid')){
+            // *If it hasn't:
+            // *Adding the class on the input:
+            this._regex_input.className += 'invalid';
+         }
+      } else{
+         // *If it could:
+         // *Checking if the input has the invalid class already:
+         if(this._regex_input.className.includes('invalid')){
+            // *If it has:
+            // *Removing it from the input:
+            this._regex_input.className = this._regex_input.className.replace(/invalid/g, '');
+         }
+      }
+
       // *Initializing the last highlight applyed index on text:
       let last_verified_index = 0;
       // *Generating the matches array:
@@ -39,7 +62,7 @@ class TesterView{
       // *Getting each matched text:
       for(let match of matches){
          // *Adding one more matches list item:
-         matches_list_content += `${this._matches_start_str}${match}${this._matches_end_str}`;
+         matches_list_content += match ? `${this._matches_start_str}${match}${this._matches_end_str}` : '';
 
          // *Finding the match inside the text, starting after the last verified index:
          let index = highlighting_content.indexOf(match, last_verified_index);
